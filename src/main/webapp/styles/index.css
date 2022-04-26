@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #202020;
+    max-width: 100vw;
+
+}
+
+.box {
+    display: inline;
+    padding: 10px;
+}
+
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+    color: #FB1B1B;
+    font-size: 2em;
+}
+
+#pokedex {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+#pokecard {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #FFFFFF;
+    margin-bottom: 70px;
+    transition: all .4s ease-in-out;
+}
+
+h3 {
+    text-transform: capitalize;
+    font-size: 0.75rem;
+}
+
+#pokecard:hover {
+    transform: scale(1.1);
+}
