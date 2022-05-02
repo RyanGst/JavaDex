@@ -42,3 +42,158 @@ h3 {
 #pokecard:hover {
     transform: scale(1.1);
 }
+
+.nes-icon.close::before {
+    width: 1px;
+    height: 1px;
+    color: #FB1B1B !important;
+    box-shadow: 1px 1px, 2px 1px, 3px 1px, 4px 1px, 13px 1px, 14px 1px, 15px 1px, 16px 1px, 1px 2px, 2px 2px, 3px 2px, 4px 2px, 13px 2px, 14px 2px, 15px 2px, 16px 2px, 1px 3px, 2px 3px, 3px 3px, 4px 3px, 13px 3px, 14px 3px, 15px 3px, 16px 3px, 1px 4px, 2px 4px, 3px 4px, 4px 4px, 5px 4px, 6px 4px, 7px 4px, 10px 4px, 11px 4px, 12px 4px, 13px 4px, 14px 4px, 15px 4px, 16px 4px, 4px 5px, 5px 5px, 6px 5px, 7px 5px, 10px 5px, 11px 5px, 12px 5px, 13px 5px, 4px 6px, 5px 6px, 6px 6px, 7px 6px, 10px 6px, 11px 6px, 12px 6px, 13px 6px, 4px 7px, 5px 7px, 6px 7px, 7px 7px, 8px 7px, 9px 7px, 10px 7px, 11px 7px, 12px 7px, 13px 7px, 7px 8px, 8px 8px, 9px 8px, 10px 8px, 7px 9px, 8px 9px, 9px 9px, 10px 9px, 4px 10px, 5px 10px, 6px 10px, 7px 10px, 8px 10px, 9px 10px, 10px 10px, 11px 10px, 12px 10px, 13px 10px, 4px 11px, 5px 11px, 6px 11px, 7px 11px, 10px 11px, 11px 11px, 12px 11px, 13px 11px, 4px 12px, 5px 12px, 6px 12px, 7px 12px, 10px 12px, 11px 12px, 12px 12px, 13px 12px, 1px 13px, 2px 13px, 3px 13px, 4px 13px, 5px 13px, 6px 13px, 7px 13px, 10px 13px, 11px 13px, 12px 13px, 13px 13px, 14px 13px, 15px 13px, 16px 13px, 1px 14px, 2px 14px, 3px 14px, 4px 14px, 13px 14px, 14px 14px, 15px 14px, 16px 14px, 1px 15px, 2px 15px, 3px 15px, 4px 15px, 13px 15px, 14px 15px, 15px 15px, 16px 15px, 1px 16px, 2px 16px, 3px 16px, 4px 16px, 13px 16px, 14px 16px, 15px 16px, 16px 16px;
+}
+
+
+.container {
+    padding: 40px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: 65px;
+    font-weight: bold;
+}
+
+.pokedex {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 20px;
+    padding-inline-start: 0;
+}
+
+.card {
+    list-style: none;
+    padding: 20px;
+    color: #222;
+    text-align: center;
+    border-radius: 20px;
+    position: relative;
+    margin: 10px;
+}
+
+.card::after {
+    content: "";
+    display: block;
+    width: 45%;
+    height: 45%;
+    border-radius: 100%;
+    background-color: #fff;
+    opacity: .7;
+    position: absolute;
+    top: 15%;
+    left: 25%;
+}
+
+.steel {
+    background-color: #f4f4f4;
+}
+
+.fire {
+    background-color: #FDDFDF;
+}
+
+.grass {
+    background-color: #DEFDE0;
+}
+
+.electric {
+    background-color: #FCF7DE;
+}
+
+.water, .ice {
+    background-color: #DEF3FD;
+}
+
+.ground {
+    background-color: #f4e7da;
+}
+
+.rock {
+    background-color: #d5d5d4;
+}
+
+.fairy {
+    background-color: #fceaff;
+}
+
+.poison {
+    background-color: #c4add6;
+}
+
+.bug {
+    background-color: #f8d5a3;
+}
+
+.dragon {
+    background-color: #97b3e6;
+}
+
+.psychic {
+    background-color: #eaeda1;
+}
+
+.flying {
+    background-color: #F5F5F5;
+}
+
+.fighting {
+    background-color: #E6E0D4;
+}
+
+.ghost {
+    background-color: #ebc2c2;
+}
+
+.normal {
+    background-color: #F5F5F5;
+}
+
+.card:hover {
+    animation: bounce 0.5s linear;
+}
+
+.card-title {
+    text-transform: capitalize;
+    margin-bottom: 0px;
+    font-size: 32px;
+    font-weight: normal;
+    position: relative;
+    z-index: 2;
+}
+
+.card-subtitle {
+    margin-top: 5px;
+    color: #666;
+    font-weight: lighter;
+    position: relative;
+    z-index: 2;
+}
+
+.card-image {
+    height: 180px;
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes bounce {
+    20% {
+        transform: translateY(-6px);
+    }
+    40% {
+        transform: translateY(0px);
+    }
+    80% {
+        transform: translateY(-2px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}

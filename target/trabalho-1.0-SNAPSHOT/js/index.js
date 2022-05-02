@@ -1,38 +1,35 @@
 const pokedex = document.getElementById('pokedex');
-const getPokemon = () => {
-    const promises = [];
 
-    for (let i = 1; i <= 50; i++) {
-        const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
-        promises.push(fetch(url)
-            .then((res) => res.json()));
-    }
+const getPokemonUrl = id => `https://pokeapi.co/api/v2/pokemon/${id}`
+const generatePokemonPromises = () => Array(150).fill().map((_, index) =>
+    (fetch(getPokemonUrl(index + 1)).then(response => response.json()))
+)
 
-    Promise.all(promises).then(result => {
-        const pokemon = result.map((data) => ({
-            id: data.id,
-            name: data.name,
-            image: data.sprites['front_default'],
-        }));
+function addPokemon(pokemon) {
+    console.log(pokemon.split(','));
+}
 
-        displayPokemon(pokemon);
-    })
-};
+const generateHTML = pokemons => {
+    return pokemons.reduce((accumulator, {name, id, types, sprites}) => {
+        const elementTypes = types.map(typeInfo => typeInfo.type.name)
+        accumulator += `
+      <li class="card ${elementTypes[0]}" onclick="addPokemon(\'${name}, ${id}, ${sprites['front_default']}\')">
+      <img class="card-image alt="${name}" src="${sprites['front_default']}"</img>
+        <h2 class="card-title">${id}. ${name}</h2>
+        <p class="card-subtitle">${elementTypes.join(" | ")}</p>
+      </li>
+    `
+        return accumulator
+    }, "")
+}
 
-const displayPokemon = (pokemon) => {
-    const pokemonString = pokemon.map(singlePokemon => `
-    <div id="pokecard">
-      <img src="${singlePokemon.image}" />
-      <h3>${singlePokemon.id}. ${singlePokemon.name}</h3>
-      <div>
-            <button type="button" class="nes-btn is-success is-small">Adicionar ao time</button>
-          <button type="button" class="nes-btn is-primary is-small">Ver detalhes</button>
-        </div>
-        
-    </div>`
-    ).join("");
+const insertPokemonsIntoPage = pokemons => {
+    pokedex.innerHTML = pokemons
+}
 
-    pokedex.innerHTML = pokemonString;
-};
+const pokemonPromises = generatePokemonPromises()
 
-getPokemon();
+Promise.all(pokemonPromises)
+    .then(generateHTML)
+    .then(insertPokemonsIntoPage)
+
